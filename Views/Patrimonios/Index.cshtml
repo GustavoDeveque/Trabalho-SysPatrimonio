@@ -1,0 +1,88 @@
+﻿@model IEnumerable<SysPatrimonio.Models.DtoPatrimonio>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                NºEtiqueta
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                Marca/Modelo
+            </th>
+            <th>
+                Aquisição
+            </th>
+            <th>
+                Baixa
+            </th>
+            <th>
+                NºNotaFiscal
+            </th>
+            <th>
+                NºSerie
+            </th>
+            <th>
+                Situação
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.numeroetiqueta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomepatrimonio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descricaopatrimonio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valorpatrimonio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.marcamodelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dataaquisicao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.databaixa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numnf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numserie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.situacao)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
